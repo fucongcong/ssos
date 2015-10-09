@@ -1,20 +1,24 @@
 
-首先每个版本都需要打tag
-git tag -a 'v1.0' -m 'v1.0'
+####首先每个版本都需要打tag
 
-当版本为v1.1时
-git diff  --name-status v1.0 master > diff-v1.1
+    git tag -a 'v1.0' -m 'v1.0'
+
+####当版本为v1.1时
+
+    git diff  --name-status v1.0 master > diff-v1.1
+
 此时会生成与v1.0变更的diff-v1.1文件：
 如
-A diff-1.1
-D index.html
-M src/Custom/WebBundle/Controller/UserController.php
-M src/Topxia/Service/User/Impl/UserServiceImpl.php
-M src/Topxia/WebBundle/Handler/AuthenticationProvider.php
+
+    A diff-1.1
+    D index.html
+    M src/Custom/WebBundle/Controller/UserController.php
+    M src/Topxia/Service/User/Impl/UserServiceImpl.php
+    M src/Topxia/WebBundle/Handler/AuthenticationProvider.php
 
 A表示新增，D表示删除，M表示更新
 
-打包diff-v1.1文件列表中得文件。
+####打包diff-v1.1文件列表中得文件。
 php build.php -f diff-v1.1
 
 build.php
@@ -69,10 +73,10 @@ build.php
     }
 
 
-上传zip包即可。
+####上传zip包即可。
 
 
-待更新服务器需要下载更新包，执行更新脚本。
+####待更新服务器需要下载更新包，执行更新脚本。
 
 
 update.php
