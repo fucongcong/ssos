@@ -1,5 +1,5 @@
 #笔记
-
+####[PHP内核探索](https://github.com/fucongcong/ssos/blob/master/php.md)
 ####[linux常用命令](https://github.com/fucongcong/ssos/blob/master/linux-command.md)
 ####[mysql配置](https://github.com/fucongcong/ssos/blob/master/mysql.md)
 ####[系统优化](https://github.com/fucongcong/ssos/blob/master/optimize.md)
