@@ -6,10 +6,10 @@
 
 ####目录结构
 
--build
--ext PHP扩展
--tests 测试
--Zend Zend引擎
+- build
+- ext PHP扩展
+- tests 测试
+- Zend Zend引擎
 
 ####常见的文件
 
