@@ -20,3 +20,14 @@
     .am makefile开发文件
     .awk 脚本,作用与shell类似
     .phpt 测试文件
+
+
+
+
+
+
+
+
+//常用的ssl加密
+openssl_public_decrypt()
+$name = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
