@@ -1,4 +1,5 @@
 #笔记
+####[Redis使用场景](https://github.com/fucongcong/ssos/blob/master/redis.md)
 ####[PHP内核探索](https://github.com/fucongcong/ssos/blob/master/php.md)
 ####[linux常用命令](https://github.com/fucongcong/ssos/blob/master/linux-command.md)
 ####[mysql配置](https://github.com/fucongcong/ssos/blob/master/mysql.md)
