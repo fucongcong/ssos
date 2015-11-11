@@ -24,6 +24,39 @@
 
 
 
+####从最简单的方法开始
+
+    /* {{{ proto void hello_world(string name)
+    Greets a user */
+    PHP_FUNCTION(hello_world)
+    {
+        char *name;
+        int name_len;
+
+        if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &name, &name_len) == FAILURE) {
+            return;
+        }
+
+        php_printf("Hello %s!", name);
+
+        RETURN_TRUE;
+    }
+    /* }}} */
+
+    定义了一个hello_world方法，定义了 name，和name_len两个变量，然后通过zend_parse_parameters()拿取用户传入的变量值，“s”表示是一个字符串，后面两个引用，就是把指针传递给我们之前定义的两个变量中去，最后判断如果传递参数有误，就返回一个NULL值。
+
+zend_parse_parameters() 类型说明符
+修饰符|类型|描述
+:---------------|:---------------|:---------------
+a|array|数组
+b|zend_bool|boolean
+l|long|integer 整型
+d|double|float 浮点型
+s|char*|二进制安全字符串，当为s时，需要在后面定义length长度
+r|Resource|资源
+h|HashTable*|数组的哈希表
+o|Object instance|对象
+z|Non-specific zval|任意类型
 
 
 
