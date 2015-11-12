@@ -22,6 +22,36 @@
     .phpt 测试文件
 
 
+####开始尝试写我们的第一个扩展
+-1.进入ext目录
+
+执行
+
+    ./ext_skel hello_world
+
+将会出现
+
+    Creating directory hello_world
+    Creating basic files: config.m4 config.w32 .gitignore hello_world.c php_hello_world.h CREDITS EXPERIMENTAL tests/001.phpt hello_world.php [done].
+
+    To use your new extension, you will have to execute the following steps:
+
+    1.  $ cd ..
+    2.  $ vi ext/hello_world/config.m4
+    3.  $ ./buildconf
+    4.  $ ./configure --[with|enable]-hello_world
+    5.  $ make
+    6.  $ ./sapi/cli/php -f ext/hello_world/hello_world.php
+    7.  $ vi ext/hello_world/hello_world.c
+    8.  $ make
+
+    Repeat steps 3-6 until you are satisfied with ext/hello_world/config.m4 and
+    step 6 confirms that your module is compiled into PHP. Then, start writing
+    code and repeat the last two steps as often as necessary.
+
+-2.按着上面步骤执行
+    第二步中需要把if test "$PHP_HELLO_WORLD" != "yes"; then  里的NO改为YES
+    第四步$ ./configure --enable-hello_world
 
 
 ####从最简单的方法开始
@@ -59,7 +89,7 @@ h|HashTable*|数组的哈希表
 o|Object instance|对象
 z|Non-specific zval|任意类型
 
-
+####第一个扩展就完成了
 
 
 //常用的ssl加密
