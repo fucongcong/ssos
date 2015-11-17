@@ -24,3 +24,13 @@
 
     sudo tcpdump -i any tcp port 9396
 
+
+
+    fpm 位置
+    /usr/local/opt/php56/sbin/php56-fpm
+
+    scp -p 1122 root@198.12.12.21:/var/www/demo.tar.gz  /var/www/demo.tar.gz
+
+
+    //git 记住密码
+    git config credential.helper 'cache --timeout=360000'
