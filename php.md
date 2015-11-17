@@ -50,7 +50,6 @@
     code and repeat the last two steps as often as necessary.
 
 -2.按着上面步骤执行
-    第二步中需要把if test "$PHP_HELLO_WORLD" != "yes"; then  里的NO改为YES
     第四步$ ./configure --enable-hello_world
 
 
