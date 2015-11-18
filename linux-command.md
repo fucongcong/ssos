@@ -34,3 +34,6 @@
 
     //git 记住密码
     git config credential.helper 'cache --timeout=360000'
+
+
+    sudo apachectl start

@@ -2,7 +2,6 @@
 
     CREATE DATABASE `{DATABASE_NAME}` DEFAULT CHARACTER SET utf8 ;
 
-
 ####创建数据库帐号，并授权访问某数据库：
 
     GRANT ALL PRIVILEGES ON `{DATABASE_NAME}`.* TO '{USER}'@'{HOST}' IDENTIFIED BY '{PASSWORD}';
@@ -14,8 +13,6 @@
 ####授权帐号访问某数据库：
 
     GRANT ALL PRIVILEGES ON `{DATABASE_NAME}`.* TO '{USER}'@'{HOST}';
-
-
 
 ####修改帐号密码：
 
@@ -42,7 +39,6 @@
     mysqlbinlog --no-defaults mysql-bin.000001  --start-position = "100" --stop-position = "200" ｜mysql -u root -p 123 DATABASE_NAME
     mysqlbinlog --no-defaults mysql-bin.000001  --start-date = "2015-05-05 12:12:12" --stop-date = "2015-05-05 13:13:!3" ｜mysql -u root -p 123 DATABASE_NAME
 
-
 ####配置slave,一下信息为主服务器ip,以及授权的账号．
 
     CHANGE MASTER TO
@@ -53,8 +49,6 @@
 ####查看slave状态
 
     show slave status\G;
-
-
 
 ###mysql主从服务器在线上运行出现的问题
 
@@ -77,6 +71,11 @@
     1.双主服务器如何做数据同步？
     2.数据库分库分区如何做到数据层很好的支持，当某个业务量增大时，还是会出现上面的问题。成本很高
 
+#####单表数据量很大如何解决？
+
+    目前有一张3000W数据的表。查询效率已经非常的慢了。这时候应该考虑水平分表了。那么如何分可以更好的支持后台业务代码更小的变动，更好的扩展呢？
+    思路1：保持id唯一性，如果表数据足够大时，主键可设为bigint。可以以3000W为一个单位，3000-6000W的数据就放到第二张表，6000-9000W就存第三张表，以次类推。这样实现，必须在插入操作时做一次判断，保证插入到正确的表中，而读取数据时则也需要做相应的映射。
+    思路2：根据某个唯一字段（如user_id）进行算法自动派发到对应的表中，这样的要求就是事先已经创建好N张表了，扩展性方面相对会差一些。因为如果其他表中引用到了此字段，也必须将user_id进行冗余，这样才能正确的找到此数据。老的数据可以单独留在一张表中不做处理。
 
 ####Linux系统中的数据库迁移
 
