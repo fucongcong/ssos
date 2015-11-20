@@ -100,3 +100,4 @@ $name = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
 
 ####优化小点
 #####可以用empty或者isset判断变量时，尽量少用is_null（性能太差，差几十倍）等方法
+
