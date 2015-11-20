@@ -55,7 +55,7 @@ for($i=0; $i<$worker_num ;$i++) {
         $recv = $process->read();
         if ($recv != '') {
             $data = dotest();
-            if ($data !== false){
+            if ($data != false){
                 $process->write($data);
             }else{
                 swoole_process::kill($process->pid);
@@ -94,6 +94,7 @@ swoole_process::signal(SIGCHLD, function ($signo) use ($worker_num) {
         }
     }
 });
+
 
 
 

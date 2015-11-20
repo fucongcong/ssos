@@ -45,7 +45,7 @@
     定时脚本处理业务数据？
     服务器配置优化
     sql优化
-
+[服务器反代+负载配置）](https://github.com/fucongcong/Group/blob/master/doc/nginx_apache%E8%B4%9F%E8%BD%BD%2B%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.txt)
 ####监控：http://tpm.oneapm.com/
 ####压力测试：ab
 ####备份：热备 冷备
