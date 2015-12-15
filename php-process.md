@@ -97,7 +97,7 @@
             $recv = $process->read();
             if ($recv != '') {
                 $data = dotest();
-                if ($data !== false){
+                if ($data != false){
                     $process->write($data);
                 }else{
                     swoole_process::kill($process->pid);
