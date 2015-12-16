@@ -5,7 +5,7 @@ char b = 'A';
 short c = 1;
 double d = 1.12;
 float e = 1.13;
-char * f = "hello world";
+char f[] = "hello world";
 
 int main()
 {
@@ -23,4 +23,5 @@ int main()
     printf("%lu \n", sizeof(d));
     printf("%lu \n", sizeof(e));
     printf("%lu \n", sizeof(f));
+    return 0;
 }
