@@ -1,4 +1,4 @@
-###PHP内核探索
+###PHP7内核探索
 
 ####下载PHP源码
 
@@ -9,7 +9,10 @@
 - build
 - main PHP最为核心的文件
 - ext PHP扩展
+- sapi PHP的解析代理。常见的cli，nginx的fastcgi，php-fpm还有apache的php解析模块，还有一个embed可以用于C/C++中使用zend内核，实现对php的编译
 - tests 测试
+- travis 持续集成的脚本 
+- win32 windows环境下的要用到的
 - Zend Zend引擎
 
 ####常见的文件
@@ -23,7 +26,7 @@
     .phpt 测试文件
 
 
-####开始尝试写我们的第一个扩展
+####先来开始尝试写我们的第一个扩展，从而了解整个php内核的生命周期
 -1.进入ext目录
 
 执行
@@ -166,7 +169,7 @@ z|Non-specific zval|任意类型
 结果 20 hello cc
 
 
-
+###了解完一个简单的扩展之后，就正式开始我们的内核探索之旅。
 
 
 
