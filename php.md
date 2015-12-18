@@ -7,6 +7,7 @@
 ####目录结构
 
 - build
+- main PHP最为核心的文件
 - ext PHP扩展
 - tests 测试
 - Zend Zend引擎
@@ -27,7 +28,7 @@
 
 执行
 
-    ./ext_skel hello_world
+    ./ext_skel --extname=hello_world
 
 将会出现
 
@@ -50,30 +51,101 @@
     code and repeat the last two steps as often as necessary.
 
 -2.按着上面步骤执行
+    如果是php7 有可能需要升级re2C C的编码器和bison语法分析生成器
     第四步$ ./configure --enable-hello_world
 
 
 ####从最简单的方法开始
 
+````c
+
+    /* 定义一个hello_worl的全局变量 */
+    ZEND_DECLARE_MODULE_GLOBALS(hello_world)
+
+    /* ini初始化时我们可以设置参数，需要在php_hello_world.h 中开启ZEND_BEGIN_MODULE_GLOBALS */
+    PHP_INI_BEGIN()
+        STD_PHP_INI_ENTRY("hello_world.name",      "20", PHP_INI_ALL, OnUpdateLong, hello_world_name, zend_hello_world_globals, hello_world_globals)
+        STD_PHP_INI_ENTRY("hello_world.dir", "hello ", PHP_INI_ALL, OnUpdateString, hello_world_dir, zend_hello_world_globals, hello_world_globals)
+    PHP_INI_END()
+
+
+    /* arg是传入的变量名，arg_len是变量的长度，而name和dir是我在ini配置中定义的2个参数 */
     /* {{{ proto void hello_world(string name)
     Greets a user */
     PHP_FUNCTION(hello_world)
     {
-        char *name;
-        int name_len;
+        char *arg = NULL;
+        size_t arg_len, len;
+        zend_string *strg;
 
-        if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &name, &name_len) == FAILURE) {
+        if (zend_parse_parameters(ZEND_NUM_ARGS(), "s", &arg, &arg_len) == FAILURE) {
             return;
         }
 
-        php_printf("Hello %s!", name);
+        int name = INI_INT("hello_world.name");
+        const zend_string *dir = INI_STR("hello_world.dir");
+        strg = strpprintf(0, "%d %s %s", name, dir, arg);
 
-        RETURN_TRUE;
+        RETURN_STR(strg);
     }
     /* }}} */
 
-    定义了一个hello_world方法，定义了 name，和name_len两个变量，然后通过zend_parse_parameters()拿取用户传入的变量值，“s”表示是一个字符串，后面两个引用，就是把指针传递给我们之前定义的两个变量中去，最后判断如果传递参数有误，就返回一个NULL值。
+    /* 初始化全局变量 */
+    static void php_hello_world_init_globals(zend_hello_world_globals *hello_world_globals)
+    {
+        hello_world_globals->hello_world_name = 0;
+        hello_world_globals->hello_world_dir = NULL;
+    }
 
+    /* }}} */
+
+    /* {{{ PHP_MINIT_FUNCTION
+     */
+    /* php初始化前做的事 */
+    PHP_MINIT_FUNCTION(hello_world)
+    {   
+        ZEND_INIT_MODULE_GLOBALS(hello_world, php_hello_world_init_globals, NULL);
+        REGISTER_INI_ENTRIES();
+
+        return SUCCESS;
+    }
+    /* }}} */
+
+    /* {{{ PHP_MSHUTDOWN_FUNCTION
+     */
+    /* php结束整个进程前做的，释放资源 */
+    PHP_MSHUTDOWN_FUNCTION(hello_world)
+    {
+        
+        UNREGISTER_INI_ENTRIES();
+
+        return SUCCESS;
+    }
+    /* }}} */
+
+    /* Remove if there's nothing to do at request start */
+    /* {{{ PHP_RINIT_FUNCTION
+     */
+    /* request前做的 */
+    PHP_RINIT_FUNCTION(hello_world)
+    {
+    #if defined(COMPILE_DL_HELLO_WORLD) && defined(ZTS)
+        ZEND_TSRMLS_CACHE_UPDATE();
+    #endif
+        return SUCCESS;
+    }
+    /* }}} */
+
+    /* Remove if there's nothing to do at request end */
+    /* {{{ PHP_RSHUTDOWN_FUNCTION
+     */
+    /* request结束时做的 */
+    PHP_RSHUTDOWN_FUNCTION(hello_world)
+    {
+        return SUCCESS;
+    }
+    
+````
 zend_parse_parameters() 类型说明符
 
 修饰符|类型|描述
@@ -88,7 +160,14 @@ h|HashTable*|数组的哈希表
 o|Object instance|对象
 z|Non-specific zval|任意类型
 
-####第一个扩展就完成了
+####第一个扩展就完成了，对整个php的生命周期也有了初步的了解   
+
+执行./sapi/cli/php -r 'echo hello_world('cc');'
+结果 20 hello cc
+
+
+
+
 
 
 
@@ -101,3 +180,5 @@ $name = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
 ####优化小点
 #####可以用empty或者isset判断变量时，尽量少用is_null（性能太差，差几十倍）等方法
 
+
+http://www.laruence.com/

@@ -1,4 +1,6 @@
 
+    踩坑：& 需要转义\&
+
     top 查看cpu
     sar　cpu历史
     free -m 查看使用率
