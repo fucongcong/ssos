@@ -165,10 +165,12 @@ z|Non-specific zval|任意类型
 
 ####第一个扩展就完成了，对整个php的生命周期也有了初步的了解   
 
-执行./sapi/cli/php -r 'echo hello_world('cc');'
-结果 20 hello cc
+    执行./sapi/cli/php -r 'echo hello_world('cc');'
 
 
+    结果 20 hello cc
+
+##### [鸟哥的早期文章,用C/C++扩展你的PHP](http://www.laruence.com/2009/04/28/719.html)
 ###了解完一个简单的扩展之后，就正式开始我们的内核探索之旅。
 
 

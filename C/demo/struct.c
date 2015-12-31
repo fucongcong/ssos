@@ -8,6 +8,7 @@ struct user
 {
     int userId;
     char username[];
+
 }user1;
 
 char hello(char name[])
@@ -18,6 +19,23 @@ char hello(char name[])
     printf("%d \n", X);
     return 'A';
 }
+
+struct _zval_struct {
+    union {
+        long lval;
+        double dval;
+        struct {
+            char *val;
+            int len;
+        } str;
+        // HashTable *ht;
+        // zend_object_value obj;
+        // zend_ast *ast;
+    } value;
+    // zend_uint refcount__gc;
+    // zend_uchar type;
+    // zend_uchar is_ref__gc;
+} zval_struct;
 
 int main()
 {
@@ -31,6 +49,8 @@ int main()
     printf("%d \n", OLD);
 
     sex();
+
+    printf("%lu \n", sizeof(zval_struct));
     return 0;
 }
 
