@@ -30,21 +30,18 @@
     轻量级，直接使用MVC框架即可（sy2,laravel,thinkphp,ci）+ mysql
     中型，MVC框架+ mysql + key-value缓存（redis，memcache）
     大型  MVC框架+ mysql + key-value缓存（redis，memcache）+ 集群
-
     静态资源cdn
     压缩合并js，css，图片请求
-    DNS集群？
-    反向代理服务器？
-    服务器集群（nginx，apache，nginx做反向代理分发到apache）
-    高并发情况
+    DNS集群
+    服务器集群（nginx，apache，nginx做反向代理分发到apache）(请看我的Group框架)
     使用swoole搭建服务器，处理同步异步请求，结合传统服务器集群做数据处理，和数据库和缓存服务器通信。
-
-    数据库集群 mysql的（master slave 读写分离）
+    数据库集群 mysql的（master slave 读写分离）(请看我的Group框架)
     缓存服务器集群redis（master slave）
-
-    定时脚本处理业务数据？
-    服务器配置优化
-    sql优化
+    定时脚本处理业务数据(请看我的Group框架)
+    服务器配置优化(请看配置优化篇)
+    sql优化(语句的调整与表结构的设计优化，分区和分表往后放)
+    消息队列(请看我的Group框架)
+    
 [服务器反代+负载配置）](https://github.com/fucongcong/Group/blob/master/doc/nginx_apache%E8%B4%9F%E8%BD%BD%2B%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.txt)
 ####监控：http://tpm.oneapm.com/
 ####压力测试：ab
