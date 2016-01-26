@@ -7,16 +7,23 @@
 	Document Length:        1660 bytes
 
 	Concurrency Level:      100
-	Time taken for tests:   2.511 seconds
+	Time taken for tests:   2.016 seconds
 	Complete requests:      2000
 	Failed requests:        0
-	Keep-Alive requests:    0
-	Total transferred:      3926000 bytes
+	Keep-Alive requests:    2000
+	Total transferred:      3980000 bytes
 	HTML transferred:       3320000 bytes
-	Requests per second:    796.53 [#/sec] (mean)
-	Time per request:       125.544 [ms] (mean)
-	Time per request:       1.255 [ms] (mean, across all concurrent requests)
-	Transfer rate:          1526.95 [Kbytes/sec] received
+	Requests per second:    992.15 [#/sec] (mean)
+	Time per request:       100.791 [ms] (mean)
+	Time per request:       1.008 [ms] (mean, across all concurrent requests)
+	Transfer rate:          1928.10 [Kbytes/sec] received
+
+	Connection Times (ms)
+	              min  mean[+/-sd] median   max
+	Connect:        0    0   0.5      0       3
+	Processing:    11   98  35.6     90     355
+	Waiting:       11   98  35.6     90     355
+	Total:         14   99  35.5     90     355
 
 
 	Server Software:        nginx/1.8.0

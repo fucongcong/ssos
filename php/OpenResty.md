@@ -66,3 +66,6 @@
 
 #####总的来说，如果做移动api，swoole的性能更强劲，而且学习成本相对于lua更低。
 
+启动
+sudo  /usr/local/openresty/nginx/sbin/nginx -c /usr/local/etc/nginx/nginx.conf 
+
