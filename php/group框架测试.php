@@ -1,3 +1,6 @@
+###如果要使用swoole http server .
+1.请把Group框架的composer.json文件里的require  "group/group-framework": "~1.1.6" 版本改为 "group/group-framework": "dev-swoole-http-server"
+2.nginx配置文件示例在下方
 #####常规	
 	Server Software:        openresty/1.9.7.1
 	Server Hostname:        127.0.0.1
