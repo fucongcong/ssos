@@ -31,10 +31,10 @@
     中型，MVC框架+ mysql + key-value缓存（redis，memcache）
     大型  MVC框架+ mysql + key-value缓存（redis，memcache）+ 集群
     静态资源cdn
-    压缩合并js，css，图片请求
+    压缩合并js，css，图片请求(请看我的Group框架swoole分支)
     DNS集群
     服务器集群（nginx，apache，nginx做反向代理分发到apache）(请看我的Group框架)
-    使用swoole搭建服务器，处理同步异步请求，结合传统服务器集群做数据处理，和数据库和缓存服务器通信。
+    使用swoole搭建服务器，处理同步异步请求，结合传统服务器集群做数据处理，和数据库和缓存服务器通信。(请看我的Group框架提供的async服务)
     数据库集群 mysql的（master slave 读写分离）(请看我的Group框架)
     缓存服务器集群redis（master slave）
     定时脚本处理业务数据(请看我的Group框架)
