@@ -1,7 +1,7 @@
 ###如果要使用swoole http server .
-#####1.执行php server.php  配置文件在config/app.php 
+#####1.配置文件在config/app.php 
 #####2.nginx配置文件示例在下方
-#####3.php index.php &
+#####3.执行php server.php &
 #####4.访问http://127.0.0.1:9776
 #####常规	
 	Server Software:        openresty/1.9.7.1
