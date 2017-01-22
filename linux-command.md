@@ -79,3 +79,5 @@
     CLOSING：两边同时尝试关闭
     TIME_WAIT：另一边已初始化一个释放
     LAST_ACK：等待所有分组死掉
+
+    diff -ruN  cm/web/views/ cm-china/web/views/ > diff.log
