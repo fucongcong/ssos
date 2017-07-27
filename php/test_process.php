@@ -36,8 +36,7 @@ function dotest() {
 function dosomething($data) {
 
     //具体要子进程处理的逻辑 如果这里的处理时间越长，使用多进程处理会越显优势
-    sleep(2);
-    return 1;
+    return json_encode($data);
 }
 
 //启动4个进程进行处理
@@ -74,6 +73,7 @@ function callback_function(swoole_process $worker)
 
         if($recv) {
             $data = call_user_func_array('dosomething', [json_decode($recv,true)]);
+                print_r($data);
             $worker->write($data);
         }else {
 

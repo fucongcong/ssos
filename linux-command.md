@@ -81,3 +81,6 @@
     LAST_ACK：等待所有分组死掉
 
     diff -ruN  cm/web/views/ cm-china/web/views/ > diff.log
+
+    //gdb debug
+    set startup-with-shell off 

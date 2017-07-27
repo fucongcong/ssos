@@ -1,3 +1,7 @@
+#### git忽略文件不起作用
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
 
 ####首先每个版本都需要打tag
 
