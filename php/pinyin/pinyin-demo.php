@@ -1,6 +1,6 @@
 <?php
 
-require_once ('pinyin/Pinyin.php');
+require_once ('Pinyin.php');
 
 $res = [
 

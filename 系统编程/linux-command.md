@@ -1,5 +1,5 @@
 
-    踩坑：& 需要转义\&
+    mac os踩坑：& 需要转义\&
 
     top 查看cpu
     sar　cpu历史

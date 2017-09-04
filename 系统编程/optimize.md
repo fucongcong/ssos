@@ -11,11 +11,3 @@ php.ini 开启opcache扩展，加速php
 具体根据服务器配置优化
 
 增大ulimit
-
-
-网站性能监控
-http://tpm.oneapm.com/
-
-代码优化
-xhprof
-
