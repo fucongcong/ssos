@@ -42,6 +42,7 @@
 ```
 
 output 
+
     action
     jmp to main
     action
