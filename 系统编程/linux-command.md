@@ -84,3 +84,6 @@
 
     //gdb debug
     set startup-with-shell off 
+
+    //批量kill
+    ps -ef |grep phantomjs |awk '{print $2}'|xargs kill -9
