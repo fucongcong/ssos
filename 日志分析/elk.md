@@ -12,4 +12,10 @@
 ##### 官方配置示例
 https://www.elastic.co/guide/en/logstash/current/config-examples.html
 
+#### linux 安装Logstash.(具体见官方文档)
+- 下载rpm包或者zip包
+- 配置conf
+- 使用bin/system-install工具完成服务控制。
+
 #### 安装ElasticSearch
+启动: bin/elasticsearch -d 

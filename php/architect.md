@@ -27,7 +27,7 @@
 
 ####服务器端架构
 
-    轻量级，直接使用MVC框架即可（sy2,laravel,thinkphp,ci）+ mysql
+    轻量级，直接使用MVC框架即可（sf2,laravel,thinkphp,ci）+ mysql
     中型，MVC框架+ mysql + key-value缓存（redis，memcache）
     大型  MVC框架+ mysql + key-value缓存（redis，memcache）+ 集群
     静态资源cdn

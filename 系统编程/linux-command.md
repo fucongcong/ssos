@@ -1,3 +1,5 @@
+    //监听情况
+    netstat -tnlp
 
     mac os踩坑：& 需要转义\&
 
