@@ -89,3 +89,6 @@
 
     //批量kill
     ps -ef |grep phantomjs |awk '{print $2}'|xargs kill -9
+
+    //批量删除
+    ps -ef|grep cron|awk  '{print $2}'|xargs kill
