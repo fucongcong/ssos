@@ -1,0 +1,17 @@
+
+service Demo
+{
+    struct Company
+    {
+        0 need int id;
+        1 need long code;
+        2 need string name;
+        3 optional string addr;
+    }
+
+    interface
+    {
+        Company getCompany(int id);
+        int haveCompany(string name);
+    }
+}
