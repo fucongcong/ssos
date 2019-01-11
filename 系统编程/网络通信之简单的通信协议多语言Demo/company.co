@@ -1,12 +1,27 @@
 
 service Demo
 {
+    struct Members
+    {
+        0 need list<string> names;
+        //1 need map<string, string> sexs;
+        //2 need bool work = false;
+    }
+
     struct Company
     {
         0 need int id;
         1 need long code;
         2 need string name;
-        3 optional string addr;
+        16 optional string addr;
+        4 optional Members members;
+        5 optional list<Members> memberLists;
+    }
+
+    struct User
+    {
+        0 need int id;
+        1 optional Company company;
     }
 
     interface
@@ -15,3 +30,4 @@ service Demo
         int haveCompany(string name);
     }
 }
+
